@@ -86,9 +86,9 @@ layers:
   - RGB ON
   - RGB OFF
   - MOVE DOWN
-  - '&ko LEFT_BRACE'
-  - '&ko RIGHT_BRACE'
-  - '&ko APOS'
+  - '{'
+  - '}'
+  - {t: '''', s: '"'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
