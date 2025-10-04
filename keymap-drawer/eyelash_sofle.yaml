@@ -85,7 +85,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - RGB ON
   - RGB OFF
-  - MOVE DOWN
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - '{'
   - '}'
   - {t: '''', s: '"'}
