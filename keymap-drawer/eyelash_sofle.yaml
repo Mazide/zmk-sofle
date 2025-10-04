@@ -49,22 +49,22 @@ layers:
   - $$mdi:arrow-right-bold$$
   - N
   - M
-  - {t: ',', s: <}
   - {t: ., s: '>'}
-  - '?'
+  - {t: ',', s: <}
+  - {t: /, s: '?'}
   - {t: \, s: '|'}
   - $$mdi:volume-off$$
   - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
   - layer1
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - layer2
-  - {t: /, s: '?'}
-  - {t: /, s: '?'}
+  - KP MINUS
+  - KP PLUS
   layer1:
   - {t: '`', s: '~'}
   - F1
