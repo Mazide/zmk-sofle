@@ -28,17 +28,15 @@
 };
 
 &mt {
-    tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
+    tapping-term-ms = <140>;
+    quick-tap-ms = <105>;
     flavor = "tap-preferred";
-    hold-trigger-on-release;
 };
 
 &lt {
-    tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
+    tapping-term-ms = <140>;
+    quick-tap-ms = <105>;
     flavor = "tap-preferred";
-    hold-trigger-on-release;
 };
 &soft_off { hold-time-ms = <2000>; };
 
@@ -86,7 +84,7 @@
 &trans      &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp BSLH      &mmv MOVE_DOWN   &kp MINUS        &kp EQUAL        &kp UNDER        &kp PLUS     &kp APOS         &kp DQT
 &trans      &kp COMMA        &kp DOT         &kp SLASH        &kp SEMI         &kp APOS      &mmv MOVE_LEFT   &kp LS(COMMA)    &kp LS(DOT)      &kp LS(SLASH)    &kp LS(SEMI) &kp GRAVE        &trans
 &trans      &kp LG(TAB)      &kp LS(LG(TAB)) &kp LG(SPACE)    &kp LS(LG(N3))   &kp LS(LG(N4)) &mmv MOVE_RIGHT  &kp LA(LEFT)     &kp LA(RIGHT)    &kp LG(LEFT)     &kp LG(RIGHT) &kp LA(BACKSPACE) &kp LA(DELETE)
-&kp C_MUTE  &sk LSHFT        &sk LCTRL       &sk LALT         &sk LGUI         &trans    &mkp LCLK        &caps_word       &trans           &trans            &trans     &trans
+&kp C_MUTE  &kp LSHFT        &kp LCTRL       &kp LEFT_ALT     &kp LCMD         &trans    &mkp LCLK        &trans           &trans           &trans            &trans     &trans
             >;
 
             display-name = "SYMS+VIM";
