@@ -326,5 +326,13 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
+- p: [27, 28]
+  k: $$mdi:keyboard-esc$$
+- p: [28, 29]
+  k: {t: '$$mdi:backspace$$', type: backspace}
+- p: [34, 35]
+  k: $$mdi:apple-keyboard-control$$
+- p: [35, 36]
+  k: $$mdi:apple-keyboard-shift$$
 - p: [14, 28, 40]
   k: '&soft_off'
