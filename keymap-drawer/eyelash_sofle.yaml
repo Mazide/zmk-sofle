@@ -63,8 +63,8 @@ layers:
   - {t: '$$mdi:keyboard-space$$', h: SYMBOLS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - SYMBOLS
-  - KP MINUS
-  - KP PLUS
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   SYMS+VIM:
   - {t: '`', s: '~'}
   - {t: Sft+1, s: Sft+!}
