@@ -1,6 +1,6 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1300  // 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // 600
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80 // 10
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -33,12 +33,6 @@
     flavor = "balanced";
 };
 
-&lt {
-    tapping-term-ms = <160>;
-    quick-tap-ms = <120>;
-    flavor = "balanced";
-};
-
 &soft_off {
     hold-time-ms = <2000>;          // можно оставить как есть
 };
@@ -51,7 +45,9 @@
 //	MUTE LCTRL LALT LCMD (MO1) LSHIFT ENTER (LT2 SPACE) ENTER (MO2) — —	52–63
 // A (27)   S (28)   D (29)   F (30)   G (31)   ← (32)   H (33)   J (34)   K (35)   L (36)   ; (37)   ' (38)
 
-
+// TOOD:
+// add combo for line end/start
+// add combo for word end/start
 / {
     combos {
         compatible = "zmk,combos";
