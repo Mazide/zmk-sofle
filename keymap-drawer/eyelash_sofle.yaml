@@ -60,7 +60,7 @@ layers:
   - SYMS+VIM
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:keyboard-space$$', h: SYMBOLS}
+  - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - SYMBOLS
   - {t: '$$mdi:transfer$$', type: trans}
@@ -190,9 +190,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   MEDIA+SYS:
@@ -328,11 +328,15 @@ layers:
 combos:
 - p: [27, 28]
   k: $$mdi:keyboard-esc$$
+  l: [LAYER0]
 - p: [28, 29]
-  k: {t: '$$mdi:backspace$$', type: backspace}
+  k: $$mdi:apple-keyboard-option$$
+  l: [LAYER0]
 - p: [34, 35]
   k: $$mdi:apple-keyboard-control$$
+  l: [LAYER0]
 - p: [35, 36]
-  k: $$mdi:apple-keyboard-shift$$
+  k: $$mdi:apple-keyboard-option$$
+  l: [LAYER0]
 - p: [14, 28, 40]
   k: '&soft_off'
