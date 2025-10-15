@@ -53,7 +53,7 @@
             layers = <0>;
         };
 
-        combo_lalt {
+        combo_lctrl {
             timeout-ms = <50>;
             key-positions = <28 29>;
             bindings = <&kp LCTRL>;
@@ -63,18 +63,18 @@
         combo_lalt {
             timeout-ms = <50>;
             key-positions = <29 30>;
-            bindings = <&kp LCTRL>;
+            bindings = <&kp LEFT_ALT>;
             layers = <0>;
         };
 
-        combo_ctrl {
+        combo_ralt {
             timeout-ms = <50>;
             key-positions = <34 35>;
             bindings = <&kp RIGHT_ALT>;
             layers = <0>;
         };
 
-        combo_ralt {
+        combo_rctrl {
             timeout-ms = <50>;
             key-positions = <35 36>;
             bindings = <&kp RCTRL>;
