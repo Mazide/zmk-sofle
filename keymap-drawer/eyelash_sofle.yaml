@@ -333,7 +333,7 @@ combos:
   k: $$mdi:apple-keyboard-control$$
   l: [LAYER0]
 - p: [29, 30]
-  k: $$mdi:apple-keyboard-control$$
+  k: $$mdi:apple-keyboard-option$$
   l: [LAYER0]
 - p: [34, 35]
   k: $$mdi:apple-keyboard-option$$
