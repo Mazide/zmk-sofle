@@ -27,12 +27,6 @@
     trigger-period-ms = <16>;
 };
 
-&mt {
-    tapping-term-ms = <160>;
-    quick-tap-ms = <120>;
-    flavor = "balanced";
-};
-
 &soft_off {
     hold-time-ms = <2000>;          // можно оставить как есть
 };
@@ -59,24 +53,38 @@
             layers = <0>;
         };
 
-        combo_backspace {
+        combo_lalt {
             timeout-ms = <50>;
             key-positions = <28 29>;
-            bindings = <&kp LEFT_ALT>;
+            bindings = <&kp LCTRL>;
+            layers = <0>;
+        };
+
+        combo_lalt {
+            timeout-ms = <50>;
+            key-positions = <29 30>;
+            bindings = <&kp LCTRL>;
             layers = <0>;
         };
 
         combo_ctrl {
             timeout-ms = <50>;
             key-positions = <34 35>;
-            bindings = <&kp LCTRL>;
+            bindings = <&kp RIGHT_ALT>;
             layers = <0>;
         };
 
-        combo_shift {
+        combo_ralt {
             timeout-ms = <50>;
             key-positions = <35 36>;
-            bindings = <&kp RIGHT_ALT>;
+            bindings = <&kp RCTRL>;
+            layers = <0>;
+        };
+        
+        combo_backspace {
+            timeout-ms = <50>;
+            key-positions = <36 37>;
+            bindings = <&kp BACKSPACE>;
             layers = <0>;
         };
     };
