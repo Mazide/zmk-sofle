@@ -123,7 +123,6 @@
 &kp LSHFT   &kp Z      &kp X         &kp C             &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp SLASH   &kp BSLH
 &kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LCMD          &mo 1   &kp LSHFT    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2    &trans           &trans
             >;
-            
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "LAYER0";
         };
@@ -136,7 +135,6 @@
 &trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_RIGHT  &trans           &trans           &trans           &trans             &trans           &trans
 &trans      &trans           &trans          &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
             >;
-
             display-name = "SYMS+VIM";
             sensor-bindings = <&scroll_encoder>;
         };
@@ -147,9 +145,8 @@
 &trans       &kp EXCL         &kp AT           &kp HASH         &kp DLLR         &kp PRCNT     &trans         &kp CARET        &kp AMPS         &kp KP_MULTIPLY  &kp LPAR         &kp RPAR         &trans
 &trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp MINUS        &kp EQUAL        &kp LBRT         &kp RBRT         &kp BSLH         &kp GRAVE
 &trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp UNDER        &kp PLUS         &kp LBRC         &kp RBRC         &kp PIPE         &kp TILDE
-&trans       &trans           &trans           &trans           &trans           &trans        &trans         &trans           &trans           &trans           &trans           &trans
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &trans       &trans           &trans           &trans           &trans
             >;
-
             display-name = "SYMBOLS";
             sensor-bindings = <&scroll_encoder>;
         };
