@@ -130,11 +130,11 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE   &kp LS(N1)       &kp LS(N2)      &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &mmv MOVE_UP     &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)  &kp LS(N0)       &trans
-&trans      &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_BRACE &kp RIGHT_BRACE &kp BSLH      &mmv MOVE_DOWN   &kp MINUS        &kp EQUAL        &kp UNDER        &kp PLUS     &kp APOS         &kp DQT
-&trans      &kp COMMA        &kp DOT         &kp SLASH        &kp SEMI         &kp APOS      &mmv MOVE_LEFT &kp LEFT_ARROW  &kp DOWN_ARROW    &kp UP_ARROW     &kp RIGHT_ARROW    &kp GRAVE        &trans
-&trans      &kp LG(TAB)      &kp LS(LG(TAB)) &kp LG(SPACE)    &kp LS(LG(N3))   &kp LS(LG(N4)) &mmv MOVE_RIGHT  &kp LS(COMMA)    &kp LS(DOT)      &kp LS(SLASH)    &kp LS(SEMI) &kp LA(BACKSPACE) &kp LA(DELETE)
-&kp C_MUTE  &kp LSHFT        &kp LCTRL       &kp LEFT_ALT     &kp LCMD         &trans    &mkp LCLK        &trans           &trans           &trans            &trans     &trans
+&kp GRAVE   &kp LS(N1)       &kp LS(N2)      &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &mmv MOVE_UP     &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)         &kp LS(N0)       &trans
+&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_DOWN   &trans           &trans           &trans           &trans             &trans           &trans
+&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_LEFT   &kp LEFT_ARROW   &kp DOWN_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW    &trans          &trans
+&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_RIGHT  &trans           &trans           &trans           &trans             &trans           &trans
+&trans      &trans           &trans          &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
             >;
 
             display-name = "SYMS+VIM";
@@ -143,39 +143,14 @@
 
         layer_2 {
             bindings = <
-&kp GRAVE    &kp LS(N1)       &kp LS(N2)       &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &trans    &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)       &kp LS(N0)       &kp BACKSPACE
-&kp TILDE    &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT_BRACE   &kp RIGHT_BRACE  &kp BSLH      &kp LS(BSLH)    &kp MINUS        &kp EQUAL        &kp UNDER        &kp PLUS         &kp APOS         &kp DQT
-&trans       &kp COMMA        &kp DOT          &kp SLASH        &kp SEMI         &kp APOS      &trans    &kp LS(COMMA)    &kp LS(DOT)      &kp LS(SLASH)    &kp LS(SEMI)     &kp GRAVE        &trans
-&trans       &trans           &trans           &trans           &trans           &trans        &trans    &trans           &trans           &trans           &trans           &trans           &trans
-&trans       &trans           &trans           &trans           &trans           &trans        &trans    &trans           &trans           &trans           &trans           &trans
+&kp TILDE    &kp LS(N1)       &kp LS(N2)       &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &trans         &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)       &kp LS(N0)       &kp BACKSPACE
+&trans       &kp EXCL         &kp AT           &kp HASH         &kp DLLR         &kp PRCNT     &trans         &kp CARET        &kp AMPS         &kp KP_MULTIPLY  &kp LPAR         &kp RPAR         &trans
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp MINUS        &kp EQUAL        &kp LBRT         &kp RBRT         &kp BSLH         &kp GRAVE
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp UNDER        &kp PLUS         &kp LBRC         &kp RBRC         &kp PIPE         &kp TILDE
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &trans           &trans           &trans           &trans           &trans
             >;
 
             display-name = "SYMBOLS";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_3 {
-            bindings = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT      &kp C_VOL_DN     &kp C_VOL_UP      &trans
-&kp TILDE  &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
-&trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
-&trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
-&trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
-            >;
-
-            display-name = "MEDIA+SYS";
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-         display-name = "layer4";
             sensor-bindings = <&scroll_encoder>;
         };
     };
