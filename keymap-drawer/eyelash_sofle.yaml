@@ -156,7 +156,7 @@ layers:
   - KP MULTIPLY
   - (
   - )
-  - {t: '$$mdi:transfer$$', type: trans}
+  - '"'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
