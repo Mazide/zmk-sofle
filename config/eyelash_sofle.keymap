@@ -89,6 +89,21 @@
             layers = <0>;
         };
 
+        behaviors {
+            gaming_on: gaming_on {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&rgb_ug RGB_ON>, <&tog 3>;
+            };
+            
+            gaming_off: gaming_off {
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&rgb_ug RGB_OFF>, <&tog 0>;
+            };
+        };
+
+
 
         // Gaming mode activation (Q+W+E на layer 1)
         combo_gaming_on {
