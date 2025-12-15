@@ -282,6 +282,9 @@ combos:
 - p: [14, 15, 16]
   k: '&gaming_on'
   l: [SYMS+VIM]
+- p: [23, 24, 25]
+  k: '&gaming_off'
+  l: [gaming]
 - p: [14, 28, 40]
   k: '&soft_off'
 - p: [14, 28, 40]
