@@ -169,7 +169,7 @@
 &trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_DOWN   &trans           &trans           &trans           &trans             &trans           &trans
 &trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_LEFT   &kp LEFT_ARROW   &kp DOWN_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW    &trans          &trans
 &trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_RIGHT  &trans           &trans           &trans           &trans             &trans           &trans
-&trans      &trans           &trans          &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
+&kp F11      &trans           &trans          &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
             >;
             display-name = "SYMS+VIM";
             sensor-bindings = <&scroll_encoder>;
