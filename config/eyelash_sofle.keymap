@@ -39,27 +39,28 @@
 //	MUTE LCTRL LALT LCMD (MO1) LSHIFT ENTER (LT2 SPACE) ENTER (MO2) — —	52–63
 // A (27)   S (28)   D (29)   F (30)   G (31)   ← (32)   H (33)   J (34)   K (35)   L (36)   ; (37)   ' (38)
 
-// TOOD:
+// TODO:
 // add combo for line end/start
 // add combo for word end/start
-// ""
-//
+// linux/mac os layers
+// mac combos for linux
+// 
 
 
 / {
     behaviors {
-                gaming_on: gaming_on {
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    bindings = <&rgb_ug RGB_ON>, <&tog 3>;
-                };
-                
-                gaming_off: gaming_off {
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    bindings = <&rgb_ug RGB_OFF>, <&to 0>;
-                };
-            };
+        gaming_on: gaming_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_ON>, <&to 3>;
+        };
+        
+        gaming_off: gaming_off {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_OFF>, <&to 0>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -106,9 +107,6 @@
             layers = <0>;
         };
 
-        
-
-        // Gaming mode activation (Q+W+E на layer 1)
         combo_gaming_on {
             timeout-ms = <100>;
             key-positions = <14 15 16>;
@@ -141,9 +139,6 @@
         tap-ms = <100>;
     };
 
-    behaviors {
-    };
-
     combos {
         compatible = "zmk,combos";
 
@@ -155,7 +150,6 @@
       
     keymap {
         compatible = "zmk,keymap";
-        
         
         layer0 {
             bindings = <
