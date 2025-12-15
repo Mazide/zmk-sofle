@@ -57,7 +57,7 @@
                 gaming_off: gaming_off {
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
-                    bindings = <&rgb_ug RGB_OFF>, <&tog 0>;
+                    bindings = <&rgb_ug RGB_OFF>, <&to 0>;
                 };
             };
 
