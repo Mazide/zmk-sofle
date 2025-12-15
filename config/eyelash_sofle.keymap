@@ -1,6 +1,5 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // 600
-
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 80 // 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -11,197 +10,170 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
+// --- Pointing Device Configuration ---
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
-
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
-    acceleration-exponent = <0>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
-    delay-ms = <0>;                   // 0
+    acceleration-exponent = <0>;
+    time-to-max-speed-ms = <100>;
+    delay-ms = <0>;
 };
 
 &mmv {
-    time-to-max-speed-ms = <500>;
-    acceleration-exponent = <0>;
-    trigger-period-ms = <16>;
+    time-to-max-speed-ms = <500>;
+    acceleration-exponent = <0>;
+    trigger-period-ms = <16>;
 };
 
 &soft_off {
-    hold-time-ms = <2000>;          // можно оставить как есть
-};
-// 🧩 Матрица позиций (индексы)
-// Ряд	Клавиши	Индексы
-//	ESC N1 N2 N3 N4 N5 ↑ N6 N7 N8 N9 N0 BACKSPACE	0–12
-//	TAB Q W E R T ↓ Y U I O P [	13–25
-//	ESC A S D F G ← H J K L ; '	26–38
-//	LSHIFT Z X C V B → N M , . / \	39–51
-//	MUTE LCTRL LALT LCMD (MO1) LSHIFT ENTER (LT2 SPACE) ENTER (MO2) — —	52–63
-// A (27)   S (28)   D (29)   F (30)   G (31)   ← (32)   H (33)   J (34)   K (35)   L (36)   ; (37)   ' (38)
-
-// TOOD:
-// add combo for line end/start
-// add combo for word end/start
-// ""
-//
-
-
-/ {
-    behaviors {
-                gaming_on: gaming_on {
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    bindings = <&rgb_ug RGB_ON>, <&tog 3>;
-                };
-                
-                gaming_off: gaming_off {
-                    compatible = "zmk,behavior-macro";
-                    #binding-cells = <0>;
-                    bindings = <&rgb_ug RGB_OFF>, <&to 0>;
-                };
-            };
-
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <27 28>;
-            bindings = <&kp ESC>;
-            layers = <0>;
-        };
-
-        combo_lctrl {
-            timeout-ms = <50>;
-            key-positions = <28 29>;
-            bindings = <&kp LCTRL>;
-            layers = <0>;
-        };
-
-        combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <29 30>;
-            bindings = <&kp LEFT_ALT>;
-            layers = <0>;
-        };
-
-        combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <34 35>;
-            bindings = <&kp RIGHT_ALT>;
-            layers = <0>;
-        };
-
-        combo_rctrl {
-            timeout-ms = <50>;
-            key-positions = <35 36>;
-            bindings = <&kp RCTRL>;
-            layers = <0>;
-        };
-        
-        combo_backspace {
-            timeout-ms = <50>;
-            key-positions = <36 37>;
-            bindings = <&kp BACKSPACE>;
-            layers = <0>;
-        };
-
-        
-
-        // Gaming mode activation (Q+W+E на layer 1)
-        combo_gaming_on {
-            timeout-ms = <100>;
-            key-positions = <14 15 16>;
-            bindings = <&gaming_on>;
-            layers = <1>;
-            require-prior-idle-ms = <200>;
-        };
-
-        combo_gaming_off {
-            timeout-ms = <100>;
-            key-positions = <23 24 25>;
-            bindings = <&gaming_off>;
-            layers = <3>;
-            require-prior-idle-ms = <200>;
-        };
-
-        softoff {
-            bindings = <&soft_off>;
-            key-positions = <14 28 40>;
-        };
-    };
+    hold-time-ms = <2000>;
 };
 
 / {
-    scroll_encoder: scroll_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
-        tap-ms = <100>;
-    };
-
-    behaviors {
-    };
-
-    combos {
-        compatible = "zmk,combos";
-
-        softoff {
-            bindings = <&soft_off>;
-            key-positions = <14 28 40>;
-        };
-    };
-      
-    keymap {
-        compatible = "zmk,keymap";
+    // --- Behavior Macros (Gaming & OS Switching) ---
+    behaviors {
+        gaming_on: gaming_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_ON>, <&to 3>; // TOG 3 -> TO 3 (переход на игровой слой)
+        };
+        
+        gaming_off: gaming_off {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_OFF>, <&to 0>; // Вернуться на базовый (Linux) слой
+        };
         
+        // OS Switching Macros
+        os_linux: os_linux {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to 0>; // Переключиться на Layer 0 (Linux)
+        };
+
+        os_macos: os_macos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to 4>; // Переключиться на Layer 4 (macOS)
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
         
-        layer0 {
-            bindings = <
-&kp ESC     &kp N1     &kp N2        &kp N3            &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E             &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O            &kp P       &kp LEFT_BRACKET
-&kp ESC     &kp A      &kp S         &kp D             &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp APOS
-&kp LSHFT   &kp Z      &kp X         &kp C             &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp SLASH   &kp BSLH
-&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT  &kp LCMD          &mo 1   &kp LSHFT    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2    &trans           &trans
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-            display-name = "LAYER0";
-        };
+        // --- Core Combos (ESC, CTRL, ALT, etc. from A-Row) ---
+        combo_esc { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp ESC>; layers = <0 4>; }; // A, S
+        combo_lctrl { timeout-ms = <50>; key-positions = <28 29>; bindings = <&kp LCTRL>; layers = <0 4>; }; // S, D
+        combo_lalt { timeout-ms = <50>; key-positions = <29 30>; bindings = <&kp LEFT_ALT>; layers = <0 4>; }; // D, F
+        combo_ralt { timeout-ms = <50>; key-positions = <34 35>; bindings = <&kp RIGHT_ALT>; layers = <0 4>; }; // J, K
+        combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <0 4>; }; // K, L
+        combo_backspace { timeout-ms = <50>; key-positions = <36 37>; bindings = <&kp BACKSPACE>; layers = <0 4>; }; // L, ;
 
-        layer_1 {
-            bindings = <
-&kp GRAVE   &kp LS(N1)       &kp LS(N2)      &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &mmv MOVE_UP     &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)         &kp LS(N0)       &trans
-&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_DOWN   &trans           &trans           &trans           &trans             &trans           &trans
-&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_LEFT   &kp LEFT_ARROW   &kp DOWN_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW    &trans          &trans
-&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_RIGHT  &trans           &trans           &trans           &trans             &trans           &trans
-&trans      &trans           &trans          &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
-            >;
-            display-name = "SYMS+VIM";
-            sensor-bindings = <&scroll_encoder>;
-        };
+        // --- macOS-like Combos for Linux/Terminal (LCMD + Key) ---
+        // LCMD is at position 55 on the thumb row.
+        // We use LSCH (Left Shift + Control) for terminal compatibility in Linux/Windows.
 
-        layer_2 {
-            bindings = <
-&kp TILDE    &kp LS(N1)       &kp LS(N2)       &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &trans         &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)       &kp LS(N0)       &kp BACKSPACE
-&trans       &kp EXCL         &kp AT           &kp HASH         &kp DLLR         &kp PRCNT     &trans         &kp CARET        &kp AMPS         &kp KP_MULTIPLY  &kp LPAR         &kp RPAR         &kp DQT
-&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp MINUS        &kp EQUAL        &kp LBKT         &kp RBKT         &kp BSLH         &kp GRAVE
-&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp UNDER        &kp PLUS         &kp LBRC         &kp RBRC         &kp PIPE         &kp TILDE
-&trans       &trans           &trans           &trans           &trans           &trans        &trans         &trans       &trans           &trans           &trans           &trans
-            >;
-            display-name = "SYMBOLS";
-            sensor-bindings = <&scroll_encoder>;
-        };
+        // LCMD (55) + C (41) -> Terminal Copy (Ctrl+Shift+C)
+        combo_copy { timeout-ms = <10>; key-positions = <55 41>; bindings = <&kp LSCH(C)>; layers = <0>; }; 
+
+        // LCMD (55) + V (43) -> Terminal Paste (Ctrl+Shift+V)
+        combo_paste { timeout-ms = <10>; key-positions = <55 43>; bindings = <&kp LSCH(V)>; layers = <0>; }; 
+
+        // LCMD (55) + X (40) -> Cut (Ctrl+X)
+        combo_cut { timeout-ms = <10>; key-positions = <55 40>; bindings = <&kp LC(X)>; layers = <0>; }; 
+
+        // LCMD (55) + Z (39) -> Undo (Ctrl+Z)
+        combo_undo { timeout-ms = <10>; key-positions = <55 39>; bindings = <&kp LC(Z)>; layers = <0>; };
+
+        // LCMD (55) + L (36) -> Focus Address Bar (Ctrl+L)
+        combo_address { timeout-ms = <10>; key-positions = <55 36>; bindings = <&kp LC(L)>; layers = <0>; };
+        
+        // --- OS Switching Combos ---
+        // Q+W -> Linux (Layer 0)
+        combo_os_linux { timeout-ms = <100>; key-positions = <14 15>; bindings = <&os_linux>; layers = <0 1 2 3 4>; require-prior-idle-ms = <200>; };
+        // O+P -> macOS (Layer 4)
+        combo_os_macos { timeout-ms = <100>; key-positions = <23 24>; bindings = <&os_macos>; layers = <0 1 2 3 4>; require-prior-idle-ms = <200>; };
+
+        // --- Utility Combos ---
+        combo_gaming_on { timeout-ms = <100>; key-positions = <14 15 16>; bindings = <&gaming_on>; layers = <1>; require-prior-idle-ms = <200>; };
+        combo_gaming_off { timeout-ms = <100>; key-positions = <23 24 25>; bindings = <&gaming_off>; layers = <3>; require-prior-idle-ms = <200>; };
+        softoff { bindings = <&soft_off>; key-positions = <14 28 40>; };
+    };
+
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        tap-ms = <100>;
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+        
+        // 0: LINUX / WINDOWS BASE LAYER (Default)
+        layer_0_linux: layer_0_linux {
+            bindings = <
+&kp ESC     &kp N1     &kp N2        &kp N3            &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E             &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O            &kp P       &kp LEFT_BRACKET
+&kp ESC     &kp A      &kp S         &kp D             &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp APOS
+&kp LSHFT   &kp Z      &kp X         &kp C             &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp SLASH   &kp BSLH
+**&kp C_MUTE  &kp LCTRL  &kp LEFT_ALT &kp LCMD**        &mo 1   &kp LSHFT    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2    &trans           &trans
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            display-name = "LINUX";
+        };
+
+        // 1: SYMS+VIM LAYER (MO1)
+        layer_1 {
+            bindings = <
+&kp GRAVE   &kp LS(N1)       &kp LS(N2)      &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &mmv MOVE_UP     &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)         &kp LS(N0)       &trans
+&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_DOWN   &trans           &trans           &trans           &trans             &trans           &trans
+&trans      &trans           &trans          &trans           &trans           &trans        &mmv MOVE_LEFT   &kp LEFT_ARROW   &kp DOWN_ARROW   &kp UP_ARROW     &kp RIGHT_ARROW    &trans          &trans
+&trans      &trans           &trans           &trans           &trans           &trans        &mmv MOVE_RIGHT  &trans           &trans           &trans           &trans             &trans           &trans
+&trans      &trans           &trans           &trans           &trans           &mkp LCLK     &mkp LCLK        &trans           &trans           &trans           &trans             &trans
+            >;
+            display-name = "SYMS+VIM";
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        // 2: SYMBOLS LAYER (MO2)
+        layer_2 {
+            bindings = <
+&kp TILDE    &kp LS(N1)       &kp LS(N2)       &kp LS(N3)       &kp LS(N4)       &kp LS(N5)    &trans         &kp LS(N6)       &kp LS(N7)       &kp LS(N8)       &kp LS(N9)       &kp LS(N0)       &kp BACKSPACE
+&trans       &kp EXCL         &kp AT           &kp HASH         &kp DLLR         &kp PRCNT     &trans         &kp CARET        &kp AMPS         &kp KP_MULTIPLY  &kp LPAR         &kp RPAR         &kp DQT
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp MINUS        &kp EQUAL        &kp LBKT         &kp RBKT         &kp BSLH         &kp GRAVE
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &kp UNDER        &kp PLUS         &kp LBRC         &kp RBRC         &kp PIPE         &kp TILDE
+&trans       &trans           &trans           &trans           &trans           &trans        &trans         &trans       &trans           &trans           &trans           &trans
+            >;
+            display-name = "SYMBOLS";
+            sensor-bindings = <&scroll_encoder>;
+        };
 
 
-        gaming_layer {
-            bindings = <
-              &kp ESC      &kp N1           &kp N2           &kp N3           &kp N4           &kp N5        &kp UP_ARROW     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0           &kp BACKSPACE
-              &kp TAB      &kp Q            &kp W            &kp E            &kp R            &kp T         &kp DOWN_ARROW   &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET
-              &kp LCTRL    &kp A            &kp S            &kp D            &kp F            &kp G         &kp LEFT_ARROW   &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp APOS
-              &kp LSHFT    &kp Z            &kp X            &kp C            &kp V            &kp B         &kp RIGHT_ARROW  &kp N            &kp M            &kp COMMA        &kp DOT          &kp SLASH        &kp BSLH
-              &kp C_MUTE   &kp LCTRL        &kp LEFT_ALT     &kp LCMD         &kp SPACE        &kp LSHFT     &kp ENTER        &kp SPACE        &kp ENTER        &trans           &trans           &trans
-            >;
-        };
-    };
+        // 3: GAMING LAYER (TOG 3)
+        gaming_layer {
+            bindings = <
+              &kp ESC      &kp N1           &kp N2           &kp N3           &kp N4           &kp N5        &kp UP_ARROW     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0           &kp BACKSPACE
+              &kp TAB      &kp Q            &kp W            &kp E            &kp R            &kp T         &kp DOWN_ARROW   &kp Y            &kp U            &kp I            &kp O            &kp P            &kp LEFT_BRACKET
+              &kp LCTRL    &kp A            &kp S            &kp D            &kp F            &kp G         &kp LEFT_ARROW   &kp H            &kp J            &kp K            &kp L            &kp SEMI         &kp APOS
+              &kp LSHFT    &kp Z            &kp X            &kp C            &kp V            &kp B         &kp RIGHT_ARROW  &kp N            &kp M            &kp COMMA        &kp DOT          &kp SLASH        &kp BSLH
+              &kp C_MUTE   &kp LCTRL        &kp LEFT_ALT     &kp LCMD         &kp SPACE        &kp LSHFT     &kp ENTER        &kp SPACE        &kp ENTER        &trans           &trans           &trans
+            >;
+            display-name = "GAMING";
+        };
+
+        // 4: MACOS BASE LAYER (CMD and ALT are swapped)
+        layer_4_macos: layer_4_macos {
+            bindings = <
+&kp ESC     &kp N1     &kp N2        &kp N3            &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9           &kp N0      &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E             &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O            &kp P       &kp LEFT_BRACKET
+&kp ESC     &kp A      &kp S         &kp D             &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L            &kp SEMI    &kp APOS
+&kp LSHFT   &kp Z      &kp X         &kp C             &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp SLASH   &kp BSLH
+**&kp C_MUTE  &kp LCTRL  &kp LCMD    &kp LEFT_ALT**    &mo 1   &kp LSHFT    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2    &trans           &trans
+            >;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            display-name = "MACOS";
+        };
+    };
 };
