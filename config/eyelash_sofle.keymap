@@ -117,6 +117,14 @@
             require-prior-idle-ms = <200>;
         };
 
+        combo_gaming_off {
+            timeout-ms = <100>;
+            key-positions = <23 24 25>;
+            bindings = <&gaming_off>;
+            layers = <3>;
+            require-prior-idle-ms = <200>;
+        };
+
         softoff {
             bindings = <&soft_off>;
             key-positions = <14 28 40>;
