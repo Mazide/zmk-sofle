@@ -42,21 +42,22 @@
         to_lin: to_lin {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to L_LIN>, <&rgb_ug RGB_COLOR_HSB(200,100,50)>; 
+            bindings = <&rgb_ug RGB_ON>, <&rgb_ug RGB_COLOR_HSB(200,100,50)>, <&to L_LIN>; 
         };
 
+        // Переход в Game (Подсветка ВЫКЛ - если хочешь свет, поменяй RGB_OFF на цвет)
         to_game: to_game {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to L_GAME>, <&rgb_ug RGB_OFF>;
+            bindings = <&rgb_ug RGB_OFF>, <&to L_GAME>;
         };
 
+        // Переход в Mac (Белый) + Принудительное включение
         to_mac: to_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to L_MAC>, <&rgb_ug RGB_COLOR_HSB(0,0,100)>;
+            bindings = <&rgb_ug RGB_ON>, <&rgb_ug RGB_COLOR_HSB(0,0,100)>, <&to L_MAC>;
         };
-
         scroll_encoder: scroll_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
