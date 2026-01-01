@@ -391,13 +391,13 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
-- p: [9, 10, 11]
+- p: [8, 9, 10]
   k: '&to_lin'
   l: [macOS]
-- p: [9, 10, 11]
+- p: [8, 9, 10]
   k: '&to_game'
   l: [Linux]
-- p: [9, 10, 11]
+- p: [8, 9, 10]
   k: '&to_mac'
   l: [GAMING]
 - p: [27, 28]
