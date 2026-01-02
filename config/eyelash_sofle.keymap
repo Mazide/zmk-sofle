@@ -1,7 +1,11 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+//	ESC N1 N2 N3 N4 N5 ↑ N6 N7 N8 N9 N0 BACKSPACE	0–12
+//	TAB Q W E R T ↓ Y U I O P [	13–25
+//	ESC A S D F G ← H J K L ; '	26–38
+//	LSHIFT Z X C V B → N M , . / \	39–51
+//	MUTE LCTRL LALT LCMD (MO1) LSHIFT ENTER (LT2 SPACE) ENTER (MO2) — —	52–63
 
-// Индексы слоев
 #define L_MAC    0
 #define L_VIM    1
 #define L_SYM    2
@@ -68,8 +72,8 @@
     combos {
         compatible = "zmk,combos";
         
-        // --- ЦИКЛИЧЕСКОЕ ПЕРЕКЛЮЧЕНИЕ (Кнопки 7, 8, 9 на правой руке) ---
-        // Работает на ЛЮБОМ из базовых слоев
+        // --- циклическое переключение (кнопки 7, 8, 9 на правой руке) ---
+        // работает на любом из базовых слоев
 
         cycle_mac_to_lin { 
             timeout-ms = <150>; 
