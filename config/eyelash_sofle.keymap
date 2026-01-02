@@ -48,7 +48,7 @@
         to_game: to_game {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_OFF>, <&to L_GAME>;
+            bindings = <&rgb_ug RGB_OFF>, <&to L_GAME>, <&rgb_ug RGB_COLOR_HSB(150, 10, 10)>;
         };
 
         to_mac: to_mac {
@@ -62,14 +62,6 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
             tap-ms = <100>;
-        };
-
-        cond_layers {
-            compatible = "zmk,conditional-layers";
-            tri_layer {
-                if-layers = <L_VIM L_SYM>;
-                then-layer = <L_ADJUST>;
-            };
         };
     };
 
@@ -100,13 +92,17 @@
             layers = <L_GAME>; 
         };
 
+       
         // --- ОБЩИЕ КОМБО ---
-        combo_esc { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp ESC>; layers = <L_MAC L_LIN L_GAME>; };
-        softoff { key-positions = <14 28 40>; bindings = <&soft_off>; };
-
+        combo_esc { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp ESC>; layers = <L_MAC L_LIN>; };
+        combo_lctrl { timeout-ms = <50>; key-positions = <28 29>; bindings = <&kp LCTRL>; layers = <L_MAC L_LIN>; };
+        combo_lalt { timeout-ms = <50>; key-positions = <29 30>; bindings = <&kp LEFT_ALT>; layers = <L_MAC L_LIN>; };
+        combo_ralt { timeout-ms = <50>; key-positions = <34 35>; bindings = <&kp RIGHT_ALT>; layers = <L_MAC L_LIN>; };
+        combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <L_MAC L_LIN>; };
+ 
         // Linux Shortcuts
-        lin_copy  { key-positions = <30 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
-        lin_paste { key-positions = <30 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
+        lin_copy  { key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
+        lin_paste { key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
     };
 
     keymap {
@@ -153,8 +149,8 @@
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans &trans &trans &mo L_VIM &trans &trans &trans &trans &mo L_SYM &trans &trans &trans
+&trans &trans     &trans        &trans            &trans    &trans     &trans           &trans     &trans     &trans     &trans            &trans   &trans
+&trans &kp LCTRL  &kp LGUI      &kp LALT          &mo L_VIM &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &trans            &trans
             >;
         };
 
@@ -165,7 +161,7 @@
 &kp TAB      &kp Q      &kp W         &kp E             &kp R      &kp T      &kp DOWN         &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
 &kp LCTRL    &kp A      &kp S         &kp D             &kp F      &kp G      &kp LEFT         &kp H      &kp J      &kp K      &kp L             &kp SEMI     &kp APOS
 &kp LSHFT    &kp Z      &kp X         &kp C             &kp V      &kp B      &kp RIGHT        &kp N      &kp M      &kp COMMA  &kp DOT           &kp SLASH    &kp BSLH
-&kp C_MUTE   &kp LCTRL  &kp LALT      &kp LCMD          &kp SPACE  &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &trans     &trans            &trans       &trans
+&kp C_MUTE   &kp LCTRL  &kp LGUI      &kp LALT          &kp SPACE  &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &trans     &trans            &trans       &trans
             >;
         };
 
