@@ -52,7 +52,7 @@
         to_game: to_game {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_OFF>, <&to L_GAME>, <&rgb_ug RGB_COLOR_HSB(150, 10, 10)>;
+            bindings = <&rgb_ug RGB_ON>, <&to L_GAME>, <&rgb_ug RGB_COLOR_HSB(150, 10, 10)>;
         };
 
         to_mac: to_mac {
@@ -105,8 +105,8 @@
         combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <L_MAC L_LIN>; };
  
         // Linux Shortcuts
-        lin_copy  { key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
-        lin_paste { key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
+        lin_copy  { timeout-ms = <100>, key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
+        lin_paste { timeout-ms = <100>, key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
     };
 
     keymap {
