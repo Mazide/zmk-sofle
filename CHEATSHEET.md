@@ -73,29 +73,32 @@ M (правая) - Ctrl/Cmd+Shift+Tab (предыдущая вкладка)
 
 ## 💬 Быстрые команды (Комбо)
 
-Все комбо работают на базовых слоях (L_MAC и L_LIN). Нажимайте клавишу на позиции "Cmd" (левый большой палец) + буква.
+**Только для Linux слоя!** Эмулируют macOS Cmd-поведение через Ctrl для переиспользования мышечной памяти.
+
+На macOS используйте стандартные Cmd-комбинации - они работают нативно.
 
 **Таймаут: 100ms**
 
-### Работа с текстом
+### Работа с текстом (Linux)
 ```
-Cmd/Ctrl + C - 📋 Copy
-Cmd/Ctrl + V - 📋 Paste
-Cmd/Ctrl + X - ✂️ Cut (через X)
-Cmd/Ctrl + Z - ↩️ Undo
-Cmd/Ctrl + Shift+Z (X) - ↪️ Redo (macOS: Cmd+Shift+Z, Linux: Ctrl+Y)
-Cmd/Ctrl + A - ✨ Select All
-Cmd/Ctrl + S - 💾 Save
-Cmd/Ctrl + F - 🔍 Find
+Alt + C - 📋 Copy (→ Ctrl+C)
+Alt + V - 📋 Paste (→ Ctrl+V)
+Alt + Z - ↩️ Undo (→ Ctrl+Z)
+Alt + X - ↪️ Redo (→ Ctrl+Y)
+Alt + A - ✨ Select All (→ Ctrl+A)
+Alt + S - 💾 Save (→ Ctrl+S)
+Alt + F - 🔍 Find (→ Ctrl+F)
 ```
 
-### Браузер и приложения
+### Браузер и приложения (Linux)
 ```
-Cmd/Ctrl + T - 🆕 Новая вкладка
-Cmd/Ctrl + W - ❌ Закрыть вкладку
-Cmd/Ctrl + L - 🔗 Фокус на адресной строке
-Cmd/Ctrl + Q - 🚪 Quit приложение
+Alt + T - 🆕 Новая вкладка (→ Ctrl+T)
+Alt + W - ❌ Закрыть вкладку (→ Ctrl+W)
+Alt + L - 🔗 Фокус на адресной строке (→ Ctrl+L)
+Alt + Q - 🚪 Quit приложение (→ Ctrl+Q)
 ```
+
+**На macOS:** Просто используйте Cmd вместо Alt - это работает нативно!
 
 ### Общие комбо (на всех слоях)
 ```
