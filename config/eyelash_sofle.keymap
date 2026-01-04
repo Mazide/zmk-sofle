@@ -6,12 +6,13 @@
 //	LSHIFT Z X C V B → N M , . / \	39–51
 //	MUTE LCTRL LALT LCMD (MO1) LSHIFT ENTER (LT2 SPACE) ENTER (MO2) — —	52–63
 
-#define L_MAC    0
-#define L_VIM    1
-#define L_SYM    2
-#define L_LIN    3
-#define L_GAME   4
-#define L_ADJUST 5
+#define L_MAC        0
+#define L_VIM_MAC    1
+#define L_SYM        2
+#define L_LIN        3
+#define L_VIM_LIN    4
+#define L_GAME       5
+#define L_ADJUST     6
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -96,17 +97,29 @@
             layers = <L_GAME>; 
         };
 
-       
+
         // --- ОБЩИЕ КОМБО ---
         combo_esc { timeout-ms = <50>; key-positions = <27 28>; bindings = <&kp ESC>; layers = <L_MAC L_LIN>; };
         combo_lctrl { timeout-ms = <50>; key-positions = <28 29>; bindings = <&kp LCTRL>; layers = <L_MAC L_LIN>; };
         combo_lalt { timeout-ms = <50>; key-positions = <29 30>; bindings = <&kp LEFT_ALT>; layers = <L_MAC L_LIN>; };
         combo_ralt { timeout-ms = <50>; key-positions = <34 35>; bindings = <&kp RIGHT_ALT>; layers = <L_MAC L_LIN>; };
         combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <L_MAC L_LIN>; };
- 
-        // Linux Shortcuts
-        lin_copy  { timeout-ms = <100>, key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
-        lin_paste { timeout-ms = <100>, key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
+
+        // macOS Shortcuts (Cmd-based, using same muscle memory positions)
+        mac_copy      { timeout-ms = <50>; key-positions = <55 42>; bindings = <&kp LG(C)>; layers = <L_MAC>; };
+        mac_paste     { timeout-ms = <50>; key-positions = <55 43>; bindings = <&kp LG(V)>; layers = <L_MAC>; };
+        mac_new_tab   { timeout-ms = <50>; key-positions = <55 18>; bindings = <&kp LG(T)>; layers = <L_MAC>; };
+        mac_close_tab { timeout-ms = <50>; key-positions = <55 15>; bindings = <&kp LG(W)>; layers = <L_MAC>; };
+        mac_location  { timeout-ms = <50>; key-positions = <55 36>; bindings = <&kp LG(L)>; layers = <L_MAC>; };
+        mac_quit      { timeout-ms = <50>; key-positions = <55 14>; bindings = <&kp LG(Q)>; layers = <L_MAC>; };
+
+        // Linux Shortcuts (Ctrl-based, using same muscle memory positions as Mac)
+        lin_copy      { timeout-ms = <50>; key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
+        lin_paste     { timeout-ms = <50>; key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
+        lin_new_tab   { timeout-ms = <50>; key-positions = <55 18>; bindings = <&kp LC(T)>; layers = <L_LIN>; };
+        lin_close_tab { timeout-ms = <50>; key-positions = <55 15>; bindings = <&kp LC(W)>; layers = <L_LIN>; };
+        lin_location  { timeout-ms = <50>; key-positions = <55 36>; bindings = <&kp LC(L)>; layers = <L_LIN>; };
+        lin_quit      { timeout-ms = <50>; key-positions = <55 14>; bindings = <&kp LC(Q)>; layers = <L_LIN>; };
     };
 
     keymap {
@@ -115,23 +128,23 @@
         layer_mac {
             display-name = "macOS";
             bindings = <
-&kp ESC      &kp N1     &kp N2        &kp N3            &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9            &kp N0       &kp BACKSPACE
-&kp TAB      &kp Q      &kp W         &kp E             &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
-&kp ESC      &kp A      &kp S         &kp D             &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L             &kp SEMI     &kp APOS
-&kp LSHFT    &kp Z      &kp X         &kp C             &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT           &kp SLASH    &kp BSLH
-&kp C_MUTE   &kp LCTRL  &kp LALT      &kp LCMD          &mo L_VIM &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &trans            &trans
+&kp ESC      &kp N1     &kp N2        &kp N3            &kp N4      &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9            &kp N0       &kp BACKSPACE
+&kp TAB      &kp Q      &kp W         &kp E             &kp R       &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
+&kp ESC      &kp A      &kp S         &kp D             &kp F       &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L             &kp SEMI     &kp APOS
+&kp LSHFT    &kp Z      &kp X         &kp C             &kp V       &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT           &kp SLASH    &kp BSLH
+&kp C_MUTE   &kp LCTRL  &kp LALT      &kp LCMD          &mo L_VIM_MAC &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &trans            &trans
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
-        layer_vim {
-            display-name = "NAV";
+        layer_vim_mac {
+            display-name = "NAV-MAC";
             bindings = <
-&kp GRAVE    &kp LS(N1) &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &trans
-&trans       &trans     &trans        &trans            &trans     &trans     &mmv MOVE_DOWN   &trans     &trans     &trans     &trans            &trans       &trans
-&trans       &trans     &trans        &trans            &trans     &trans     &mmv MOVE_LEFT   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT         &trans       &trans
-&trans       &trans     &trans        &trans            &trans     &trans     &mmv MOVE_RIGHT  &trans     &trans     &trans     &trans            &trans       &trans
-&kp F11      &trans     &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans            &trans       &trans
+&kp GRAVE    &kp LS(N1)  &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &trans
+&trans       &kp LG(UP)  &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans            &trans       &trans
+&trans       &kp LA(LEFT) &kp LG(LEFT) &kp LG(RIGHT)     &trans     &kp LG(DOWN) &mmv MOVE_LEFT &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT         &trans       &trans
+&trans       &trans      &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &trans     &trans     &trans     &trans            &trans       &trans
+&kp F11      &trans      &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans            &trans       &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -153,9 +166,21 @@
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans     &trans        &trans            &trans    &trans     &trans           &trans     &trans     &trans     &trans            &trans   &trans
-&trans &kp LCTRL  &kp LGUI      &kp LALT          &mo L_VIM &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &trans            &trans
+&trans &trans     &trans        &trans            &trans      &trans     &trans           &trans     &trans     &trans     &trans            &trans   &trans
+&trans &kp LCTRL  &kp LGUI      &kp LALT          &mo L_VIM_LIN &kp LSHFT &kp ENTER       &kp SPACE  &kp ENTER  &mo L_SYM  &trans            &trans
             >;
+        };
+
+        layer_vim_lin {
+            display-name = "NAV-LIN";
+            bindings = <
+&kp GRAVE    &kp LS(N1)  &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &trans
+&trans       &kp LC(HOME) &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans            &trans       &trans
+&trans       &kp LA(LEFT) &kp HOME     &kp END           &trans     &kp LC(END) &mmv MOVE_LEFT  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT         &trans       &trans
+&trans       &trans      &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &trans     &trans     &trans     &trans            &trans       &trans
+&kp F11      &trans      &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans            &trans       &trans
+            >;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         layer_gaming {
