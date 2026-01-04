@@ -481,39 +481,6 @@ combos:
   k: $$mdi:apple-keyboard-control$$
   l: [macOS, Linux]
 - p: [55, 42]
-  k: {t: C, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 43]
-  k: {t: V, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 18]
-  k: Gui+T
-  l: [macOS]
-- p: [55, 15]
-  k: Gui+W
-  l: [macOS]
-- p: [55, 36]
-  k: Gui+L
-  l: [macOS]
-- p: [55, 14]
-  k: Gui+Q
-  l: [macOS]
-- p: [55, 28]
-  k: {t: S, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 30]
-  k: {t: F, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 27]
-  k: {t: A, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 40]
-  k: {t: Z, h: '$$mdi:apple-keyboard-command$$'}
-  l: [macOS]
-- p: [55, 41]
-  k: Gui+Sft+Z
-  l: [macOS]
-- p: [55, 42]
   k: Ctl+C
   l: [Linux]
 - p: [55, 43]
