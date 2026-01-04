@@ -47,7 +47,7 @@
         to_lin: to_lin {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&rgb_ug RGB_ON>, <&rgb_ug RGB_COLOR_HSB(200,100,50)>, <&to L_LIN>; 
+            bindings = <&rgb_ug RGB_ON>, <&rgb_ug RGB_COLOR_HSB(200,100,50)>, <&to L_LIN>;
         };
 
         to_game: to_game {
@@ -67,6 +67,56 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
             tap-ms = <100>;
+        };
+
+        // Programming macros
+        arrow: arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GT>;
+        };
+
+        fat_arrow: fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+        };
+
+        not_equal: not_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL &kp EQUAL>;
+        };
+
+        equal_equal: equal_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp EQUAL>;
+        };
+
+        greater_equal: greater_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp GT &kp EQUAL>;
+        };
+
+        less_equal: less_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LT &kp EQUAL>;
+        };
+
+        // Screenshot macros
+        screenshot_full_mac: screenshot_full_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LS(N3))>;
+        };
+
+        screenshot_area_mac: screenshot_area_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LS(N4))>;
         };
     };
 
@@ -106,20 +156,30 @@
         combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <L_MAC L_LIN>; };
 
         // macOS Shortcuts (Cmd-based, using same muscle memory positions)
-        mac_copy      { timeout-ms = <50>; key-positions = <55 42>; bindings = <&kp LG(C)>; layers = <L_MAC>; };
-        mac_paste     { timeout-ms = <50>; key-positions = <55 43>; bindings = <&kp LG(V)>; layers = <L_MAC>; };
-        mac_new_tab   { timeout-ms = <50>; key-positions = <55 18>; bindings = <&kp LG(T)>; layers = <L_MAC>; };
-        mac_close_tab { timeout-ms = <50>; key-positions = <55 15>; bindings = <&kp LG(W)>; layers = <L_MAC>; };
-        mac_location  { timeout-ms = <50>; key-positions = <55 36>; bindings = <&kp LG(L)>; layers = <L_MAC>; };
-        mac_quit      { timeout-ms = <50>; key-positions = <55 14>; bindings = <&kp LG(Q)>; layers = <L_MAC>; };
+        mac_copy      { timeout-ms = <100>; key-positions = <55 42>; bindings = <&kp LG(C)>; layers = <L_MAC>; };
+        mac_paste     { timeout-ms = <100>; key-positions = <55 43>; bindings = <&kp LG(V)>; layers = <L_MAC>; };
+        mac_new_tab   { timeout-ms = <100>; key-positions = <55 18>; bindings = <&kp LG(T)>; layers = <L_MAC>; };
+        mac_close_tab { timeout-ms = <100>; key-positions = <55 15>; bindings = <&kp LG(W)>; layers = <L_MAC>; };
+        mac_location  { timeout-ms = <100>; key-positions = <55 36>; bindings = <&kp LG(L)>; layers = <L_MAC>; };
+        mac_quit      { timeout-ms = <100>; key-positions = <55 14>; bindings = <&kp LG(Q)>; layers = <L_MAC>; };
+        mac_save      { timeout-ms = <100>; key-positions = <55 28>; bindings = <&kp LG(S)>; layers = <L_MAC>; };
+        mac_find      { timeout-ms = <100>; key-positions = <55 30>; bindings = <&kp LG(F)>; layers = <L_MAC>; };
+        mac_select_all { timeout-ms = <100>; key-positions = <55 27>; bindings = <&kp LG(A)>; layers = <L_MAC>; };
+        mac_undo      { timeout-ms = <100>; key-positions = <55 40>; bindings = <&kp LG(Z)>; layers = <L_MAC>; };
+        mac_redo      { timeout-ms = <100>; key-positions = <55 41>; bindings = <&kp LG(LS(Z))>; layers = <L_MAC>; };
 
         // Linux Shortcuts (Ctrl-based, using same muscle memory positions as Mac)
-        lin_copy      { timeout-ms = <50>; key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
-        lin_paste     { timeout-ms = <50>; key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
-        lin_new_tab   { timeout-ms = <50>; key-positions = <55 18>; bindings = <&kp LC(T)>; layers = <L_LIN>; };
-        lin_close_tab { timeout-ms = <50>; key-positions = <55 15>; bindings = <&kp LC(W)>; layers = <L_LIN>; };
-        lin_location  { timeout-ms = <50>; key-positions = <55 36>; bindings = <&kp LC(L)>; layers = <L_LIN>; };
-        lin_quit      { timeout-ms = <50>; key-positions = <55 14>; bindings = <&kp LC(Q)>; layers = <L_LIN>; };
+        lin_copy      { timeout-ms = <100>; key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
+        lin_paste     { timeout-ms = <100>; key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
+        lin_new_tab   { timeout-ms = <100>; key-positions = <55 18>; bindings = <&kp LC(T)>; layers = <L_LIN>; };
+        lin_close_tab { timeout-ms = <100>; key-positions = <55 15>; bindings = <&kp LC(W)>; layers = <L_LIN>; };
+        lin_location  { timeout-ms = <100>; key-positions = <55 36>; bindings = <&kp LC(L)>; layers = <L_LIN>; };
+        lin_quit      { timeout-ms = <100>; key-positions = <55 14>; bindings = <&kp LC(Q)>; layers = <L_LIN>; };
+        lin_save      { timeout-ms = <100>; key-positions = <55 28>; bindings = <&kp LC(S)>; layers = <L_LIN>; };
+        lin_find      { timeout-ms = <100>; key-positions = <55 30>; bindings = <&kp LC(F)>; layers = <L_LIN>; };
+        lin_select_all { timeout-ms = <100>; key-positions = <55 27>; bindings = <&kp LC(A)>; layers = <L_LIN>; };
+        lin_undo      { timeout-ms = <100>; key-positions = <55 40>; bindings = <&kp LC(Z)>; layers = <L_LIN>; };
+        lin_redo      { timeout-ms = <100>; key-positions = <55 41>; bindings = <&kp LC(Y)>; layers = <L_LIN>; };
     };
 
     keymap {
@@ -140,11 +200,11 @@
         layer_vim_mac {
             display-name = "NAV-MAC";
             bindings = <
-&kp GRAVE    &kp LS(N1)  &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &trans
-&trans       &kp LG(UP)  &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans            &trans       &trans
-&trans       &kp LA(LEFT) &kp LG(LEFT) &kp LG(RIGHT)     &trans     &kp LG(DOWN) &mmv MOVE_LEFT &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT         &trans       &trans
-&trans       &trans      &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &trans     &trans     &trans     &trans            &trans       &trans
-&kp F11      &trans      &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans            &trans       &trans
+&kp GRAVE    &kp LS(N1)    &kp LS(N2)    &screenshot_full_mac &screenshot_area_mac &kp LS(N5) &mmv MOVE_UP &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)   &kp LS(N0)   &kp C_BRI_UP
+&trans       &kp LG(UP)    &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &kp LG(LBKT) &mmv MOVE_DOWN &kp LG(RBKT) &kp PG_UP &kp C_PREV &kp C_PP      &kp C_NEXT   &kp C_BRI_DN
+&trans       &kp LA(LEFT)  &kp LG(LEFT)  &kp LG(RIGHT)     &trans     &kp LG(DOWN) &mmv MOVE_LEFT &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &trans       &trans
+&trans       &trans        &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &kp LC(TAB) &kp LC(LS(TAB)) &trans &trans     &trans       &trans
+&kp F11      &trans        &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans        &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -152,10 +212,10 @@
         layer_sym {
             display-name = "SYMBOLS";
             bindings = <
-&kp TILDE    &kp LS(N1) &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &trans           &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &kp BSPC
-&trans       &kp EXCL   &kp AT        &kp HASH          &kp DLLR   &kp PRCNT  &trans           &kp CARET  &kp AMPS   &kp STAR   &kp LPAR          &kp RPAR     &kp DQT
-&trans       &trans     &trans        &trans            &trans     &trans     &trans           &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT          &kp BSLH     &kp GRAVE
-&trans       &trans     &trans        &trans            &trans     &trans     &trans           &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC          &kp PIPE     &kp TILDE
+&kp TILDE    &kp F1     &kp F2        &kp F3            &kp F4     &kp F5     &trans           &kp F6     &kp F7     &kp F8     &kp F9            &kp F10      &kp F11
+&trans       &kp EXCL   &kp AT        &kp HASH          &kp DLLR   &kp PRCNT  &trans           &kp CARET  &kp AMPS   &kp STAR   &kp LPAR          &kp RPAR     &kp F12
+&trans       &arrow     &fat_arrow    &not_equal        &equal_equal &trans   &trans           &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT          &kp BSLH     &kp GRAVE
+&trans       &less_equal &greater_equal &trans          &trans     &trans     &trans           &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC          &kp PIPE     &kp TILDE
 &trans       &trans     &trans        &trans            &trans     &trans     &trans           &trans     &trans     &trans     &trans            &trans       &trans
             >;
         };
@@ -174,11 +234,11 @@
         layer_vim_lin {
             display-name = "NAV-LIN";
             bindings = <
-&kp GRAVE    &kp LS(N1)  &kp LS(N2)    &kp LS(N3)        &kp LS(N4) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)        &kp LS(N0)   &trans
-&trans       &kp LC(HOME) &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans            &trans       &trans
-&trans       &kp LA(LEFT) &kp HOME     &kp END           &trans     &kp LC(END) &mmv MOVE_LEFT  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT         &trans       &trans
-&trans       &trans      &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &trans     &trans     &trans     &trans            &trans       &trans
-&kp F11      &trans      &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans            &trans       &trans
+&kp GRAVE    &kp LS(N1)    &kp LS(N2)    &kp PSCRN         &kp LS(PSCRN) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)   &kp LS(N0)   &kp C_BRI_UP
+&trans       &kp LC(HOME)  &kp LA(RIGHT) &kp LA(LS(RIGHT)) &trans     &kp LA(LEFT) &mmv MOVE_DOWN &kp LA(RIGHT) &kp PG_UP &kp C_PREV &kp C_PP      &kp C_NEXT   &kp C_BRI_DN
+&trans       &kp LA(LEFT)  &kp HOME      &kp END           &trans     &kp LC(END) &mmv MOVE_LEFT  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &trans       &trans
+&trans       &trans        &kp DEL       &kp PG_DN         &trans     &trans     &mmv MOVE_RIGHT  &kp LC(TAB) &kp LC(LS(TAB)) &trans &trans     &trans       &trans
+&kp F11      &trans        &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans        &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -190,7 +250,7 @@
 &kp TAB      &kp Q      &kp W         &kp E             &kp R      &kp T      &kp DOWN         &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
 &kp LCTRL    &kp A      &kp S         &kp D             &kp F      &kp G      &kp LEFT         &kp H      &kp J      &kp K      &kp L             &kp SEMI     &kp APOS
 &kp LSHFT    &kp Z      &kp X         &kp C             &kp V      &kp B      &kp RIGHT        &kp N      &kp M      &kp COMMA  &kp DOT           &kp SLASH    &kp BSLH
-&kp C_MUTE   &kp LCTRL  &kp LGUI      &kp LALT          &kp SPACE  &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &trans     &trans            &trans       &trans
+&kp C_MUTE   &kp LCTRL  &kp LGUI      &kp LALT          &kp SPACE  &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &trans     &trans            &trans
             >;
         };
 
@@ -201,7 +261,7 @@
 &trans &trans   &trans    &trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans   &trans    &trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans   &trans    &trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans
-&trans &trans   &trans    &trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans
+&trans &trans   &trans    &trans    &trans &trans &trans &trans &trans &trans &trans &trans
             >;
         };
     };
