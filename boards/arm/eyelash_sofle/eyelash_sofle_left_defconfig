@@ -41,7 +41,7 @@ CONFIG_ZMK_USB=y
 CONFIG_ZMK_BLE=y
 
 # OLED Display (SSD1306 128x32) - disabled for now, needs proper I2C pin config
-# CONFIG_ZMK_DISPLAY=y
+CONFIG_ZMK_DISPLAY=n
 
 
 #EXT POWER
