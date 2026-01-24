@@ -227,15 +227,16 @@ zephyr_udc0: &usbd {
 };
 
 &i2c0 {
-    compatible = "nordic,nrf-twi";
+    compatible = "nordic,nrf-twim";
     status = "okay";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
+        compatible = "sinowealth,sh1106", "solomon,ssd1306fb";
         reg = <0x3c>;
+        label = "DISPLAY";
         width = <128>;
         height = <32>;
         segment-offset = <0>;
