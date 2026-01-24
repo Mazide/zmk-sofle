@@ -424,9 +424,9 @@ layers:
   - '&bl BL_ON'
   - '&bl BL_OFF'
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&to_mac'
-  - '&to_lin'
-  - '&to_game'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&soft_off'
