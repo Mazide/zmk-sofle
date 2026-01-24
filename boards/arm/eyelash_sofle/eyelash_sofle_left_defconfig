@@ -40,7 +40,8 @@ CONFIG_CLOCK_CONTROL_NRF_K32SRC_30PPM=y
 CONFIG_ZMK_USB=y
 CONFIG_ZMK_BLE=y
 
-# Display settings are provided by nice_view shield
+# OLED Display (SSD1306 128x32)
+CONFIG_ZMK_DISPLAY=y
 
 
 #EXT POWER
