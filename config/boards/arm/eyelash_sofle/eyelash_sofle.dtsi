@@ -239,13 +239,13 @@ zephyr_udc0: &usbd {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <64>;
+        height = <32>;
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <63>;
-        segment-remap;
+        multiplex-ratio = <31>;
         com-invdir;
+        segment-remap;
         prechargep = <0x22>;
     };
 };
