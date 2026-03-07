@@ -1614,12 +1614,12 @@ rect.held, rect.combo.held {
 <g transform="translate(196, 252)" class="key keypos-54">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">LGUI</text>
+<use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="-9" y="-13" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-option"/>
 </g>
 <g transform="translate(252, 259)" class="key keypos-55">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<use href="#mdi:apple-keyboard-option" xlink:href="#mdi:apple-keyboard-option" x="-9" y="-13" height="18" width="18.0" class="key tap glyph mdi:apple-keyboard-option"/>
+<text x="0" y="-4" class="key tap">LGUI</text>
 </g>
 <g transform="translate(314, 283) rotate(30.0)" class="key keypos-56">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1690,68 +1690,6 @@ rect.held, rect.combo.held {
 <g class="combo combopos-5">
 <rect rx="6" ry="6" x="742" y="130" width="28" height="26" class="combo"/>
 <use href="#mdi:apple-keyboard-control" xlink:href="#mdi:apple-keyboard-control" x="747" y="134" height="18" width="18.0" class="combo tap glyph mdi:apple-keyboard-control"/>
-</g>
-<g class="combo combopos-6">
-<rect rx="6" ry="6" x="210" y="214" width="28" height="26" class="combo"/>
-<text x="224" y="228" class="combo tap">Ctl+C</text>
-</g>
-<g class="combo combopos-7">
-<rect rx="6" ry="6" x="238" y="218" width="28" height="26" class="combo"/>
-<text x="252" y="231" class="combo tap">Ctl+V</text>
-</g>
-<g class="combo combopos-8">
-<path d="M280,175 l-22,66" class="combo"/>
-<path d="M280,175 l22,-66" class="combo"/>
-<rect rx="6" ry="6" x="266" y="162" width="28" height="26" class="combo"/>
-<text x="280" y="175" class="combo tap">Ctl+T</text>
-</g>
-<g class="combo combopos-9">
-<path d="M196,175 l46,68" class="combo"/>
-<path d="M196,175 l-46,-68" class="combo"/>
-<rect rx="6" ry="6" x="182" y="162" width="28" height="26" class="combo"/>
-<text x="196" y="175" class="combo tap">Ctl+W</text>
-</g>
-<g class="combo combopos-10">
-<path d="M518,203 l-248,52" class="combo"/>
-<path d="M518,203 l248,-52" class="combo"/>
-<rect rx="6" ry="6" x="504" y="190" width="28" height="26" class="combo"/>
-<text x="518" y="203" class="combo tap">Ctl+L</text>
-</g>
-<g class="combo combopos-11">
-<path d="M168,186 l70,61" class="combo"/>
-<path d="M168,186 l-70,-61" class="combo"/>
-<rect rx="6" ry="6" x="154" y="173" width="28" height="26" class="combo"/>
-<text x="168" y="186" class="combo tap">Ctl+Q</text>
-</g>
-<g class="combo combopos-12">
-<path d="M196,203 l43,43" class="combo"/>
-<path d="M196,203 l-43,-43" class="combo"/>
-<rect rx="6" ry="6" x="182" y="190" width="28" height="26" class="combo"/>
-<text x="196" y="203" class="combo tap">Ctl+S</text>
-</g>
-<g class="combo combopos-13">
-<path d="M252,203 l0,37" class="combo"/>
-<path d="M252,203 l0,-37" class="combo"/>
-<rect rx="6" ry="6" x="238" y="190" width="28" height="26" class="combo"/>
-<text x="252" y="203" class="combo tap">Ctl+F</text>
-</g>
-<g class="combo combopos-14">
-<path d="M168,214 l68,36" class="combo"/>
-<path d="M168,214 l-68,-36" class="combo"/>
-<rect rx="6" ry="6" x="154" y="201" width="28" height="26" class="combo"/>
-<text x="168" y="214" class="combo tap">Ctl+A</text>
-</g>
-<g class="combo combopos-15">
-<path d="M168,242 l66,14" class="combo"/>
-<path d="M168,242 l-66,-14" class="combo"/>
-<rect rx="6" ry="6" x="154" y="229" width="28" height="26" class="combo"/>
-<text x="168" y="242" class="combo tap">Ctl+Z</text>
-</g>
-<g class="combo combopos-16">
-<path d="M196,231 l39,20" class="combo"/>
-<path d="M196,231 l-39,-20" class="combo"/>
-<rect rx="6" ry="6" x="182" y="218" width="28" height="26" class="combo"/>
-<text x="196" y="231" class="combo tap">Ctl+Y</text>
 </g>
 </g>
 </g>

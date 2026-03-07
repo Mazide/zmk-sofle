@@ -250,8 +250,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-control$$
-  - LGUI
   - $$mdi:apple-keyboard-option$$
+  - LGUI
   - NAV-LIN
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -480,36 +480,3 @@ combos:
 - p: [35, 36]
   k: $$mdi:apple-keyboard-control$$
   l: [macOS, Linux]
-- p: [55, 42]
-  k: Ctl+C
-  l: [Linux]
-- p: [55, 43]
-  k: Ctl+V
-  l: [Linux]
-- p: [55, 18]
-  k: Ctl+T
-  l: [Linux]
-- p: [55, 15]
-  k: Ctl+W
-  l: [Linux]
-- p: [55, 36]
-  k: Ctl+L
-  l: [Linux]
-- p: [55, 14]
-  k: Ctl+Q
-  l: [Linux]
-- p: [55, 28]
-  k: Ctl+S
-  l: [Linux]
-- p: [55, 30]
-  k: Ctl+F
-  l: [Linux]
-- p: [55, 27]
-  k: Ctl+A
-  l: [Linux]
-- p: [55, 40]
-  k: Ctl+Z
-  l: [Linux]
-- p: [55, 41]
-  k: Ctl+Y
-  l: [Linux]
