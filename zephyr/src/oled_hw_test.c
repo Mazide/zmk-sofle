@@ -1,14 +1,21 @@
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/display.h>
+#include <zephyr/drivers/gpio.h>
 #include <zephyr/init.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
 LOG_MODULE_REGISTER(oled_hw_test, LOG_LEVEL_INF);
 
-#if IS_ENABLED(CONFIG_ZMK_EXT_POWER)
-#include <drivers/ext_power.h>
+#define EXT_POWER_NODE DT_PATH(ext_power)
+
+#if DT_NODE_EXISTS(EXT_POWER_NODE) && DT_NODE_HAS_PROP(EXT_POWER_NODE, control_gpios)
+#define OLED_HW_TEST_HAS_EXT_POWER_GPIO 1
+static const struct gpio_dt_spec ext_power_gpio =
+    GPIO_DT_SPEC_GET_BY_IDX(EXT_POWER_NODE, control_gpios, 0);
+#else
+#define OLED_HW_TEST_HAS_EXT_POWER_GPIO 0
 #endif
 
 #if !DT_HAS_CHOSEN(zephyr_display)
@@ -25,16 +32,17 @@ static int oled_hw_test_init(void) {
     };
     static uint8_t frame[(128 * 32) / 8];
 
-#if IS_ENABLED(CONFIG_ZMK_EXT_POWER)
-    const struct device *ext_power = device_get_binding("EXT_POWER");
-    if (ext_power != NULL) {
-        int ep_ret = ext_power_enable(ext_power);
+#if OLED_HW_TEST_HAS_EXT_POWER_GPIO
+    if (device_is_ready(ext_power_gpio.port)) {
+        int ep_ret = gpio_pin_configure_dt(&ext_power_gpio, GPIO_OUTPUT_ACTIVE);
         if (ep_ret < 0) {
-            LOG_ERR("ext_power_enable failed: %d", ep_ret);
+            LOG_ERR("Failed to force ext-power GPIO active: %d", ep_ret);
         } else {
             /* Let the rail stabilize before talking to the display. */
             k_msleep(50);
         }
+    } else {
+        LOG_WRN("Ext-power GPIO device not ready");
     }
 #endif
 
