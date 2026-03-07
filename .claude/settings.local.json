@@ -5,7 +5,9 @@
       "Bash(git commit:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(git push)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "Read(//tmp/kinto/**)",
+      "Read(//tmp/kinto/linux/**)"
     ]
   },
   "enableAllProjectMcpServers": false

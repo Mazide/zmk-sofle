@@ -157,18 +157,6 @@
         combo_ralt { timeout-ms = <50>; key-positions = <34 35>; bindings = <&kp RIGHT_ALT>; layers = <L_MAC L_LIN>; };
         combo_rctrl { timeout-ms = <50>; key-positions = <35 36>; bindings = <&kp RCTRL>; layers = <L_MAC L_LIN>; };
 
-        // Linux Shortcuts (Ctrl-based, emulating macOS Cmd behavior for muscle memory)
-        lin_copy      { timeout-ms = <180>; key-positions = <55 42>; bindings = <&kp LC(C)>; layers = <L_LIN>; };
-        lin_paste     { timeout-ms = <180>; key-positions = <55 43>; bindings = <&kp LC(V)>; layers = <L_LIN>; };
-        lin_new_tab   { timeout-ms = <180>; key-positions = <55 18>; bindings = <&kp LC(T)>; layers = <L_LIN>; };
-        lin_close_tab { timeout-ms = <180>; key-positions = <55 15>; bindings = <&kp LC(W)>; layers = <L_LIN>; };
-        lin_location  { timeout-ms = <180>; key-positions = <55 36>; bindings = <&kp LC(L)>; layers = <L_LIN>; };
-        lin_quit      { timeout-ms = <180>; key-positions = <55 14>; bindings = <&kp LC(Q)>; layers = <L_LIN>; };
-        lin_save      { timeout-ms = <180>; key-positions = <55 28>; bindings = <&kp LC(S)>; layers = <L_LIN>; };
-        lin_find      { timeout-ms = <180>; key-positions = <55 30>; bindings = <&kp LC(F)>; layers = <L_LIN>; };
-        lin_select_all { timeout-ms = <180>; key-positions = <55 27>; bindings = <&kp LC(A)>; layers = <L_LIN>; };
-        lin_undo      { timeout-ms = <180>; key-positions = <55 40>; bindings = <&kp LC(Z)>; layers = <L_LIN>; };
-        lin_redo      { timeout-ms = <180>; key-positions = <55 41>; bindings = <&kp LC(Y)>; layers = <L_LIN>; };
     };
 
     keymap {
@@ -216,7 +204,7 @@
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans     &trans        &trans            &trans      &trans     &trans           &trans     &trans     &trans     &trans            &trans   &trans
-&trans &kp LCTRL  &kp LGUI      &kp LALT          &mo L_VIM_LIN &kp LSHFT &kp ENTER       &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &trans
+&trans &kp LCTRL  &kp LALT      &kp LGUI          &mo L_VIM_LIN &kp LSHFT &kp ENTER       &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &trans
             >;
         };
 
