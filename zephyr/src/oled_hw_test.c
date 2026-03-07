@@ -7,6 +7,10 @@
 
 LOG_MODULE_REGISTER(oled_hw_test, LOG_LEVEL_INF);
 
+#if IS_ENABLED(CONFIG_ZMK_EXT_POWER)
+#include <drivers/ext_power.h>
+#endif
+
 #if !DT_HAS_CHOSEN(zephyr_display)
 #error "CONFIG_ZMK_OLED_HW_TEST requires zephyr,display chosen node"
 #endif
@@ -20,6 +24,19 @@ static int oled_hw_test_init(void) {
         .buf_size = (128 * 32) / 8,
     };
     static uint8_t frame[(128 * 32) / 8];
+
+#if IS_ENABLED(CONFIG_ZMK_EXT_POWER)
+    const struct device *ext_power = device_get_binding("EXT_POWER");
+    if (ext_power != NULL) {
+        int ep_ret = ext_power_enable(ext_power);
+        if (ep_ret < 0) {
+            LOG_ERR("ext_power_enable failed: %d", ep_ret);
+        } else {
+            /* Let the rail stabilize before talking to the display. */
+            k_msleep(50);
+        }
+    }
+#endif
 
     if (!device_is_ready(display)) {
         LOG_ERR("Display device not ready");
