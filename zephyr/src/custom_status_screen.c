@@ -61,6 +61,7 @@ static struct zmk_widget_layer_status layer_status_widget;
 
 #if IS_ENABLED(CONFIG_ZMK_WIDGET_WPM_STATUS)
 static struct zmk_widget_wpm_status wpm_status_widget;
+static lv_obj_t *wpm_title_label;
 #endif
 
 static lv_obj_t *anim_label;
@@ -118,6 +119,11 @@ lv_obj_t *zmk_display_status_screen() {
     lv_obj_align(zmk_widget_wpm_status_obj(&wpm_status_widget), LV_ALIGN_BOTTOM_RIGHT, 0, 0);
     lv_obj_set_style_text_font(zmk_widget_wpm_status_obj(&wpm_status_widget), font_small,
                                LV_PART_MAIN);
+
+    wpm_title_label = lv_label_create(screen);
+    lv_label_set_text(wpm_title_label, "WPM");
+    lv_obj_set_style_text_font(wpm_title_label, font_small, LV_PART_MAIN);
+    lv_obj_align(wpm_title_label, LV_ALIGN_BOTTOM_RIGHT, -30, 0);
 #endif
 
     anim_label = lv_label_create(screen);
