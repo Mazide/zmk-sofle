@@ -17,9 +17,11 @@ include:
   - board: eyelash_sofle_left
     shield: nice_view
     artifact-name: eyelash_sofle_nice_view_left
+    cmake-args: "-DCONFIG_I2C=n -DCONFIG_SSD1306=n -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=n -DCONFIG_ZMK_WIDGET_LAYER_STATUS=n -DCONFIG_ZMK_WIDGET_BATTERY_STATUS=n -DCONFIG_ZMK_WIDGET_OUTPUT_STATUS=n -DCONFIG_ZMK_WIDGET_PERIPHERAL_STATUS=n"
   - board: eyelash_sofle_right
     shield: nice_view
     artifact-name: eyelash_sofle_nice_view_right
+    cmake-args: "-DCONFIG_I2C=n -DCONFIG_SSD1306=n -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM=y -DCONFIG_ZMK_DISPLAY_STATUS_SCREEN_BUILT_IN=n -DCONFIG_ZMK_WIDGET_LAYER_STATUS=n -DCONFIG_ZMK_WIDGET_BATTERY_STATUS=n -DCONFIG_ZMK_WIDGET_OUTPUT_STATUS=n -DCONFIG_ZMK_WIDGET_PERIPHERAL_STATUS=n"
   - board: eyelash_sofle_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
