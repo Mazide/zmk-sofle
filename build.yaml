@@ -15,6 +15,12 @@ include:
     artifact-name: eyelash_sofle_oled_hwtest_right
     cmake-args: "-DCONFIG_ZMK_DISPLAY=n -DCONFIG_DISPLAY=y -DCONFIG_SSD1306=y -DCONFIG_I2C=y -DCONFIG_ZMK_OLED_HW_TEST=y -DCONFIG_ZMK_RGB_UNDERGLOW=n -DCONFIG_ZMK_BACKLIGHT=n -DCONFIG_ZMK_POINTING=n"
   - board: eyelash_sofle_left
+    shield: nice_view
+    artifact-name: eyelash_sofle_nice_view_left
+  - board: eyelash_sofle_right
+    shield: nice_view
+    artifact-name: eyelash_sofle_nice_view_right
+  - board: eyelash_sofle_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: eyelash_sofle_studio_left
