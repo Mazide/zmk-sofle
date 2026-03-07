@@ -1,0 +1,11 @@
+menu "Eyelash Sofle Extras"
+
+config ZMK_OLED_HW_TEST
+    bool "Write test pattern to OLED at boot (bypass LVGL)"
+    depends on DISPLAY
+    default n
+    help
+      Writes a deterministic checkerboard-like pattern directly to the
+      selected zephyr,display device during boot.
+
+endmenu
