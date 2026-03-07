@@ -50,10 +50,10 @@ endif # USB
 if ZMK_DISPLAY
 
 config I2C
-    default y
+    default y if !SHIELD_NICE_VIEW
 
 config SSD1306
-    default y
+    default y if !SHIELD_NICE_VIEW
 
 config DISPLAY_INIT_PRIORITY
     default 95
