@@ -1,5 +1,4 @@
 #include <lvgl.h>
-#include <zmk/display/status_screen.h>
 #include <zmk/display/widgets/battery_status.h>
 #include <zmk/display/widgets/layer_status.h>
 #include <zmk/display/widgets/output_status.h>
