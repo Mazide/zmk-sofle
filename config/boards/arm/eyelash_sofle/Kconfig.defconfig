@@ -55,6 +55,9 @@ config I2C
 config SSD1306
     default y
 
+config DISPLAY_INIT_PRIORITY
+    default 95
+
 choice ZMK_DISPLAY_WORK_QUEUE
     default ZMK_DISPLAY_WORK_QUEUE_SYSTEM
 endchoice
