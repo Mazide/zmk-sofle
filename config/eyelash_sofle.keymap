@@ -163,7 +163,7 @@
         compatible = "zmk,keymap";
 
         layer_mac {
-            display-name = "macOS";
+            display-name = "MAC";
             bindings = <
 &kp ESC      &kp N1     &kp N2        &kp N3            &kp N4      &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9            &kp N0       &kp BACKSPACE
 &kp TAB      &kp Q      &kp W         &kp E             &kp R       &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
@@ -175,7 +175,7 @@
         };
 
         layer_vim_mac {
-            display-name = "NAV-MAC";
+            display-name = "N-MAC";
             bindings = <
 &kp LG(LEFT) &kp LS(N1)    &kp LS(N2)    &screenshot_full_mac &screenshot_area_mac &kp LS(N5) &mmv MOVE_UP &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)   &kp LG(RIGHT) &kp C_BRI_UP
 &trans       &kp LG(UP)    &kp LA(RIGHT) &kp LA(RIGHT)     &trans     &kp LG(LBKT) &mmv MOVE_DOWN &kp LG(RBKT) &kp PG_UP &kp C_PREV &kp C_PP      &kp C_NEXT   &kp C_BRI_DN
@@ -187,7 +187,7 @@
         };
 
         layer_sym {
-            display-name = "SYMBOLS";
+            display-name = "SYM";
             bindings = <
 &kp TILDE    &kp F1     &kp F2        &kp F3            &kp F4     &kp F5     &trans           &kp F6     &kp F7     &kp F8     &kp F9            &kp F10      &kp F11
 &trans       &kp EXCL   &kp AT        &kp HASH          &kp DLLR   &kp PRCNT  &trans           &kp CARET  &kp AMPS   &kp STAR   &kp LPAR          &kp RPAR     &kp F12
@@ -198,7 +198,7 @@
         };
 
         layer_linux {
-            display-name = "Linux";
+            display-name = "LIN";
             bindings = <
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
@@ -209,7 +209,7 @@
         };
 
         layer_vim_lin {
-            display-name = "NAV-LIN";
+            display-name = "N-LIN";
             bindings = <
 &kp HOME     &kp LS(N1)    &kp LS(N2)    &kp PSCRN         &kp LS(PSCRN) &kp LS(N5) &mmv MOVE_UP     &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9)   &kp END      &kp C_BRI_UP
 &trans       &kp LC(HOME)  &kp LC(RIGHT) &kp LC(RIGHT)     &trans     &kp LA(LEFT) &mmv MOVE_DOWN &kp LA(RIGHT) &kp PG_UP &kp C_PREV &kp C_PP      &kp C_NEXT   &kp C_BRI_DN
@@ -232,7 +232,7 @@
         };
 
         layer_adjust {
-            display-name = "ADJUST";
+            display-name = "ADJ";
             bindings = <
 &trans       &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4    &trans           &rgb_ug RGB_EFF &rgb_ug RGB_EFR &bt BT_CLR      &bt BT_CLR_ALL  &out OUT_USB    &out OUT_BLE
 &trans       &rgb_ug RGB_TOG &rgb_ug RGB_BRI &rgb_ug RGB_BRD &rgb_ug RGB_ON  &rgb_ug RGB_OFF &trans           &rgb_ug RGB_HUI &rgb_ug RGB_HUD &rgb_ug RGB_SAI &rgb_ug RGB_SAD &trans          &trans
