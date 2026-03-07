@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: eyelash_sofle}
 layers:
-  macOS:
+  MAC:
   - $$mdi:keyboard-esc$$
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -57,15 +57,15 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-command$$
-  - NAV-MAC
+  - N-MAC
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - SYMBOLS
-  - ADJUST
+  - SYM
+  - ADJ
   - {t: '$$mdi:transfer$$', type: trans}
-  NAV-MAC:
+  N-MAC:
   - Gui+$$mdi:arrow-left-bold$$
   - {t: Sft+1, s: Sft+!}
   - {t: Sft+2, s: Sft+@}
@@ -130,7 +130,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  SYMBOLS:
+  SYM:
   - '~'
   - F1
   - F2
@@ -195,7 +195,7 @@ layers:
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  Linux:
+  LIN:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -252,15 +252,15 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - $$mdi:apple-keyboard-option$$
   - LGUI
-  - NAV-LIN
+  - N-LIN
   - $$mdi:apple-keyboard-shift$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - SYMBOLS
-  - ADJUST
+  - SYM
+  - ADJ
   - {t: '$$mdi:transfer$$', type: trans}
-  NAV-LIN:
+  N-LIN:
   - HOME
   - {t: Sft+1, s: Sft+!}
   - {t: Sft+2, s: Sft+@}
@@ -390,7 +390,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  ADJUST:
+  ADJ:
   - {t: '$$mdi:transfer$$', type: trans}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
@@ -458,25 +458,25 @@ layers:
 combos:
 - p: [9, 10, 11]
   k: '&to_lin'
-  l: [macOS]
+  l: [MAC]
 - p: [9, 10, 11]
   k: '&to_game'
-  l: [Linux]
+  l: [LIN]
 - p: [9, 10, 11]
   k: '&to_mac'
   l: [GAME]
 - p: [27, 28]
   k: $$mdi:keyboard-esc$$
-  l: [macOS, Linux]
+  l: [MAC, LIN]
 - p: [28, 29]
   k: $$mdi:apple-keyboard-control$$
-  l: [macOS, Linux]
+  l: [MAC, LIN]
 - p: [29, 30]
   k: $$mdi:apple-keyboard-option$$
-  l: [macOS, Linux]
+  l: [MAC, LIN]
 - p: [34, 35]
   k: $$mdi:apple-keyboard-option$$
-  l: [macOS, Linux]
+  l: [MAC, LIN]
 - p: [35, 36]
   k: $$mdi:apple-keyboard-control$$
-  l: [macOS, Linux]
+  l: [MAC, LIN]
