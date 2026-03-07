@@ -1,14 +1,47 @@
 #include <lvgl.h>
-#include <zmk/display/widgets/battery_status.h>
-#include <zmk/display/widgets/layer_status.h>
-#include <zmk/display/widgets/output_status.h>
-#include <zmk/display/widgets/peripheral_status.h>
-#include <zmk/display/widgets/wpm_status.h>
-
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
+
+/*
+ * The ZMK widget headers are not exposed via app/module/include for external modules.
+ * Keep local declarations in sync with ZMK v0.3.x widget APIs.
+ */
+struct zmk_widget_battery_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
+int zmk_widget_battery_status_init(struct zmk_widget_battery_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_battery_status_obj(struct zmk_widget_battery_status *widget);
+
+struct zmk_widget_output_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
+int zmk_widget_output_status_init(struct zmk_widget_output_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_output_status_obj(struct zmk_widget_output_status *widget);
+
+struct zmk_widget_peripheral_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
+int zmk_widget_peripheral_status_init(struct zmk_widget_peripheral_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_peripheral_status_obj(struct zmk_widget_peripheral_status *widget);
+
+struct zmk_widget_layer_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
+int zmk_widget_layer_status_init(struct zmk_widget_layer_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_layer_status_obj(struct zmk_widget_layer_status *widget);
+
+struct zmk_widget_wpm_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
+int zmk_widget_wpm_status_init(struct zmk_widget_wpm_status *widget, lv_obj_t *parent);
+lv_obj_t *zmk_widget_wpm_status_obj(struct zmk_widget_wpm_status *widget);
 
 #if IS_ENABLED(CONFIG_ZMK_WIDGET_BATTERY_STATUS)
 static struct zmk_widget_battery_status battery_status_widget;
