@@ -236,18 +236,16 @@ zephyr_udc0: &usbd {
     pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
+        compatible = "sinowealth,sh1106";
         reg = <0x3c>;
         width = <128>;
-        height = <32>;
-        segment-offset = <0>;
+        height = <64>;
+        segment-offset = <2>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <31>;
+        multiplex-ratio = <63>;
         segment-remap;
         com-invdir;
-        com-sequential;
-        inversion-on;
         prechargep = <0x22>;
     };
 };
