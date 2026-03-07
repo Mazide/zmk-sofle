@@ -4,10 +4,10 @@ include:
   - board: eyelash_sofle_right
   - board: eyelash_sofle_left
     artifact-name: eyelash_sofle_oled_diag_left
-    cmake-args: "-DCONFIG_ZMK_RGB_UNDERGLOW=n -DCONFIG_ZMK_BACKLIGHT=n -DCONFIG_ZMK_POINTING=n -DCONFIG_EC11=n -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n"
+    cmake-args: "-DCONFIG_ZMK_RGB_UNDERGLOW=n -DCONFIG_ZMK_BACKLIGHT=n -DCONFIG_ZMK_POINTING=n -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n"
   - board: eyelash_sofle_right
     artifact-name: eyelash_sofle_oled_diag_right
-    cmake-args: "-DCONFIG_ZMK_RGB_UNDERGLOW=n -DCONFIG_ZMK_BACKLIGHT=n -DCONFIG_ZMK_POINTING=n -DCONFIG_EC11=n -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n"
+    cmake-args: "-DCONFIG_ZMK_RGB_UNDERGLOW=n -DCONFIG_ZMK_BACKLIGHT=n -DCONFIG_ZMK_POINTING=n -DCONFIG_ZMK_DISPLAY_BLANK_ON_IDLE=n"
   - board: eyelash_sofle_left
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
