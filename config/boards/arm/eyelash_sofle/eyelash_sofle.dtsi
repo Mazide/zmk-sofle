@@ -245,6 +245,8 @@ zephyr_udc0: &usbd {
         display-offset = <0>;
         multiplex-ratio = <31>;
         segment-remap;
+        com-invdir;
+        com-sequential;
         prechargep = <0x22>;
     };
 };

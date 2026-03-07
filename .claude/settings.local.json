@@ -7,7 +7,9 @@
       "Bash(git push)",
       "Bash(gh run list:*)",
       "Read(//tmp/kinto/**)",
-      "Read(//tmp/kinto/linux/**)"
+      "Read(//tmp/kinto/linux/**)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)"
     ]
   },
   "enableAllProjectMcpServers": false
