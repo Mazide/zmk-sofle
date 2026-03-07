@@ -270,8 +270,6 @@ nice_view_spi: &spi0 {
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
         com-sequential;
         inversion-on;
         prechargep = <0x22>;
