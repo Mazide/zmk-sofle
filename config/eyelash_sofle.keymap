@@ -173,7 +173,7 @@
 &kp TAB      &kp Q      &kp W         &kp E             &kp R       &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O             &kp P        &kp LBKT
 &kp ESC      &kp A      &kp S         &kp D             &kp F       &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L             &kp SEMI     &kp APOS
 &kp LSHFT    &kp Z      &kp X         &kp C             &kp V       &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT           &kp SLASH    &kp BSLH
-&kp C_MUTE   &kp LCTRL  &kp LALT      &kp LCMD          &mo L_VIM_MAC &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &trans
+&kp C_MUTE   &kp LCTRL  &kp LALT      &kp LCMD          &mo L_VIM_MAC &kp LSHFT  &kp ENTER        &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &kp BSPC
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
@@ -182,9 +182,9 @@
             display-name = "N-MAC";
             bindings = <
 &trans       &trans        &trans        &trans            &trans     &trans     &mmv MOVE_UP     &trans     &trans     &trans     &trans        &trans       &trans
-&trans       &trans        &kp LA(RIGHT) &trans            &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans        &trans       &trans
-&trans       &trans        &trans        &kp PG_DN         &trans     &trans     &mmv MOVE_LEFT   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &trans       &trans
-&trans       &trans        &trans        &trans            &trans     &kp LA(LEFT) &mmv MOVE_RIGHT &trans     &trans     &trans     &trans        &trans       &trans
+&trans       &kp LG(UP)    &kp LA(RIGHT) &trans            &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans        &trans       &trans
+&trans       &kp LG(LEFT)  &trans        &kp PG_DN         &trans     &kp LG(DOWN) &mmv MOVE_LEFT &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &kp LG(RIGHT) &trans
+&trans       &trans        &kp DEL       &trans            &trans     &kp LA(LEFT) &mmv MOVE_RIGHT &trans     &trans     &trans     &trans        &trans       &trans
 &trans       &trans        &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans        &trans
             >;
             sensor-bindings = <&scroll_encoder>;
@@ -208,7 +208,7 @@
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
 &trans &trans     &trans        &trans            &trans      &trans     &trans           &trans     &trans     &trans     &trans            &trans   &trans
-&trans &kp LCTRL  &kp LALT      &kp LGUI          &mo L_VIM_LIN &kp LSHFT &kp ENTER       &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &trans
+&trans &kp LCTRL  &kp LALT      &kp LGUI          &mo L_VIM_LIN &kp LSHFT &kp ENTER       &kp SPACE  &kp ENTER  &mo L_SYM  &mo L_ADJUST      &kp BSPC
             >;
         };
 
@@ -216,9 +216,9 @@
             display-name = "N-LIN";
             bindings = <
 &trans       &trans        &trans        &trans            &trans     &trans     &mmv MOVE_UP     &trans     &trans     &trans     &trans        &trans       &trans
-&trans       &trans        &kp LC(RIGHT) &trans            &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans        &trans       &trans
-&trans       &trans        &trans        &kp PG_DN         &trans     &trans     &mmv MOVE_LEFT   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &trans       &trans
-&trans       &trans        &trans        &trans            &trans     &kp LC(LEFT) &mmv MOVE_RIGHT &trans     &trans     &trans     &trans        &trans       &trans
+&trans       &kp LC(HOME)  &kp LC(RIGHT) &trans            &trans     &trans     &mmv MOVE_DOWN   &trans     &kp PG_UP  &trans     &trans        &trans       &trans
+&trans       &kp HOME      &trans        &kp PG_DN         &trans     &kp LC(END) &mmv MOVE_LEFT  &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT     &kp END      &trans
+&trans       &trans        &kp DEL       &trans            &trans     &kp LC(LEFT) &mmv MOVE_RIGHT &trans     &trans     &trans     &trans        &trans       &trans
 &trans       &trans        &trans        &trans            &trans     &mkp LCLK  &mkp LCLK        &trans     &trans     &trans     &trans        &trans
             >;
             sensor-bindings = <&scroll_encoder>;
