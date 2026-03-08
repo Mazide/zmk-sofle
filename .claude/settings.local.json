@@ -9,7 +9,9 @@
       "Read(//tmp/kinto/**)",
       "Read(//tmp/kinto/linux/**)",
       "Bash(gh api:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(tree:*)",
+      "Bash(xargs ls:*)"
     ]
   },
   "enableAllProjectMcpServers": false
